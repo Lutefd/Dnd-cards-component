@@ -1,0 +1,155 @@
+/* 
+============
+reset
+============ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.1ms !important;
+    scroll-behavior: auto !important;
+    transition-delay: 0ms !important;
+  }
+}
+
+/* ==========================
+Variables and global classes
+============================== */
+:root {
+  --clr-neutral-9: hsl(207, 19%, 9%);
+  --clr-neutral-w: hsl(0, 0%, 100%);
+  --clr-accent-4: hsl(5, 53%, 37%);
+}
+body {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  line-height: 1.5;
+  background-color: var(--clr-neutral-9);
+  font-family: sans-serif;
+}
+.card {
+  margin: 0 auto;
+  color: var(--clr-neutral-w);
+  background-image: url("/images/Volgarr.jpg");
+  background-size: cover;
+  background-position: 0rem 0rem;
+  padding: 10rem 0 0;
+  max-width: 35ch;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  transition: transform 500ms ease;
+}
+.card:hover,
+.card:focus-within {
+  transform: scale(1);
+}
+.card-content {
+  --padding: 1.5em;
+  padding: var(--padding);
+  background: linear-gradient(
+    hsl(0 0% 0% / 0),
+    hsl(5 53% 37% / 0.3),
+    hsl(0 0% 0% / 0.8)
+  );
+}
+@media (hover) {
+  .card-content {
+    transform: translateY(67%);
+    transition: transform 500ms ease;
+  }
+  .card:hover .card-content,
+  .card:focus-within .card-content {
+    transform: translateY(0);
+    transition-delay: 500ms;
+  }
+  .card:focus-within .card-content {
+    transition-duration: 0ms;
+  }
+  .card-content > *:not(.card-title) {
+    opacity: 0;
+    transition: opacity 500ms linear;
+  }
+  .card:hover .card-content > *:not(.card-title),
+  .card:focus-within .card-content > *:not(.card-title) {
+    opacity: 1;
+    transition-delay: 1000ms;
+  }
+  .card:focus-within .card-content > *:not(.card-title) {
+    transition-delay: 100ms;
+  }
+  .card-title::after {
+    transform: scale(0);
+  }
+}
+
+.card-title {
+  position: relative;
+  width: max-content;
+  text-transform: capitalize;
+  color: var(--clr-neutral-w);
+}
+
+.card-title::after {
+  content: "";
+  position: absolute;
+  width: calc(95% + var(--padding));
+  left: calc(var(--padding) * -0.65);
+  bottom: -2px;
+  height: 4px;
+  background-color: var(--clr-accent-4);
+  transform-origin: left;
+  transition: transform 500ms ease;
+}
+.card:hover .card-title::after,
+.card:focus-within .card-title::after {
+  transform: scaleX(1);
+}
+.flex-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.hp,
+.ac {
+  display: flex;
+  align-items: center;
+}
+.hp {
+  color: #c90516;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.hp p {
+  margin-left: 0.4rem;
+}
+.ac {
+  color: hsl(0, 0%, 100%);
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+.ac p {
+  margin-left: 0.4rem;
+}
+.card-body {
+  color: rgb(255 255 255 / 0.85);
+}
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--clr-neutral-9);
+  background-color: var(--clr-accent-4);
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.25rem;
+  font-weight: 500;
+}
+.btn:hover,
+.btn:focus {
+  background-color: var(--clr-neutral-w);
+}
