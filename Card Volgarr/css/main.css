@@ -36,7 +36,7 @@ body {
 .card {
   margin: 0 auto;
   color: var(--clr-neutral-w);
-  background-image: url("/images/Volgarr.jpg");
+  background-image: url('../images/Volgarr.jpg');
   background-size: cover;
   background-position: 0rem 0rem;
   padding: 10rem 0 0;
@@ -96,7 +96,7 @@ body {
 }
 
 .card-title::after {
-  content: "";
+  content: '';
   position: absolute;
   width: calc(95% + var(--padding));
   left: calc(var(--padding) * -0.65);
